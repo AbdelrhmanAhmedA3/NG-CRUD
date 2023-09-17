@@ -1,0 +1,42 @@
+<div class="shadow-sm ">
+  <nav class="navbar  text-white bg-newNav">
+    <div class="container-fluid">
+      <button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
+        <mat-icon>home</mat-icon>
+      </button>
+      <div class="d-none d-md-flex align-items-center">
+        <button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
+          <mat-icon >perm_identity</mat-icon>
+        </button>
+        <span class="me-2 fw-bolder">Employee Management</span>
+        <button (click)="navigate()"  name="Exit to app" class="rounded newStyle shadow-none " mat-fab
+        aria-label="Example icon button with a delete icon">
+          <mat-icon >exit_to_app</mat-icon>
+        </button>
+      </div>
+      <button mat-button class=" d-md-none" type="button" data-bs-toggle="offcanvas"
+      data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+        <mat-icon class="p-0 m-0 fs-5 text-white" >menu</mat-icon>
+      </button>
+      <div class="offcanvas offcanvas-start bg-newOffset" tabindex="-1" id="offcanvasDarkNavbar"
+      aria-labelledby="offcanvasDarkNavbarLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title fw-bolder" id="offcanvasDarkNavbarLabel">Menu</h5>
+          <button type="button" class="btn-close btn-close-dark" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <div class="d-flex align-items-center flex-wrap">
+            <button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
+              <mat-icon >perm_identity</mat-icon>
+            </button>
+            <span class="me-2 fw-bolder">Employee Management</span>
+            <button (click)="navigate()"  name="Exit to app" class="rounded newStyle shadow-none " mat-fab
+            aria-label="Example icon button with a delete icon">
+              <mat-icon >exit_to_app</mat-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>

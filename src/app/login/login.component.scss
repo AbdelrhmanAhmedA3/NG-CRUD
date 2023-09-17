@@ -1,0 +1,18 @@
+form {
+  .colorButton{
+    background-color: #b1494692;
+  }
+  .bgwarning{
+    background-color: #b14946;
+  }
+}
+
+.sizing{
+  height: 350px;
+  width: 500px;
+}
+@media (max-width:315px) {
+  .sizing{
+    width: 260px;
+  }
+}

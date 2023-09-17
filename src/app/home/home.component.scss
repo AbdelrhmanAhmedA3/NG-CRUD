@@ -1,0 +1,15 @@
+.bg-newNav{
+  background-color: #64437d;
+}
+.bg-add{
+  background-color: rgb(4, 185, 4);
+}
+.whitespace{
+  white-space: nowrap;
+  display: block;
+}
+@media only screen and (min-width:768px) {
+  .whitespace{
+    display: table;
+  }
+}

@@ -1,0 +1,61 @@
+<h1 mat-dialog-title>Employee Data</h1>
+<div mat-dialog-content>
+  <form [formGroup]="registerForm">
+    <p class="pt-2">
+      <mat-form-field class="w-100" appearance="outline">
+        <mat-label>Name</mat-label>
+        <input formControlName="name" matInput placeholder="Name" required>
+        <button *ngIf="registerForm.controls['name'].value && data.viewMode !== 'view'" matSuffix mat-icon-button
+          aria-label="Clear" (click)="registerForm.controls['name'].setValue('')">
+          <mat-icon>close</mat-icon>
+        </button>
+        <mat-hint>Example Name: Mohamed Ahmed Ahmed</mat-hint>
+      </mat-form-field>
+    </p>
+    <p class="pt-2">
+      <mat-form-field class="w-100" appearance="outline">
+        <mat-label>Age</mat-label>
+        <input formControlName="age" matInput placeholder="Age" required>
+        <button *ngIf="registerForm.controls['age'].value && data.viewMode !== 'view'" matSuffix mat-icon-button
+          aria-label="Clear" (click)="registerForm.controls['age'].setValue('')">
+          <mat-icon>close</mat-icon>
+        </button>
+        <mat-hint>Example Age: 25</mat-hint>
+      </mat-form-field>
+    </p>
+    <p class="pt-2">
+      <mat-form-field class="w-100" appearance="outline">
+        <mat-label>Choose a date</mat-label>
+        <input formControlName="birthOfDate" (focus)="picker.open()" matInput [matDatepicker]="picker">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <button *ngIf="registerForm.controls['birthOfDate'].value && data.viewMode !== 'view'" matSuffix mat-icon-button
+          aria-label="Clear" (click)="registerForm.controls['birthOfDate'].setValue('')">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+    </p>
+
+    <p class="pt-2">
+      <mat-form-field class="w-100" appearance="outline">
+        <mat-label>Address</mat-label>
+        <textarea formControlName="address" matInput placeholder="Address" required></textarea>
+        <button *ngIf="registerForm.controls['address'].value && data.viewMode !== 'view'" matSuffix mat-icon-button
+          aria-label="Clear" (click)="registerForm.controls['address'].setValue('')">
+          <mat-icon>close</mat-icon>
+        </button>
+        <mat-hint>Example Address: Ex. 100 Main St</mat-hint>
+      </mat-form-field>
+    </p>
+
+  </form>
+</div>
+<div mat-dialog-actions align="end">
+  <button mat-button (click)="register('close')">Close</button>
+  <button *ngIf="data.viewMode !== 'view' " [disabled]="registerForm.invalid" color="primary" mat-button
+    (click)="data.viewMode == 'add' ? register('add') : register('edit')">
+    {{data.viewMode == 'add' ? 'Submit': 'Save' }}
+  </button>
+
+</div>

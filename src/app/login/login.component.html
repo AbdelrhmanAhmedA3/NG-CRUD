@@ -1,0 +1,44 @@
+<section>
+  <div  class=" bg-backScreen w-100 min-vh-100 d-flex justify-content-center align-items-center position-relative">
+    <div  id="particleground" class="position-absolute w-100 h-100 "></div>
+    <div class="sizing bg-light m-3  rounded-2 shadow-sm  z-3">
+      <div class="h-100">
+        <form class="h-100" [formGroup]="loginForm">
+          <div class="d-flex flex-column gap-3  p-4 p-md-5 justify-content-center h-100">
+            <!-- Email -->
+            <mat-form-field class="example-full-width">
+              <mat-label>Email</mat-label>
+              <input type="email" arabicOnly matInput formControlName="email" placeholder="Ex. pat@example.com">
+              <button button *ngIf="loginForm.controls['email']" matSuffix mat-icon-button aria-label="Clear" (click)="loginForm.controls['email'].setValue('')">
+                <mat-icon>close</mat-icon>
+              </button>
+              <mat-error *ngIf="loginForm.controls['email'].hasError('email') && !loginForm.controls['email'].hasError('required')">
+                Please enter a valid email address
+              </mat-error>
+              <mat-error *ngIf="loginForm.controls['email'].hasError('required')">
+                Email is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+            <!-- Email -->
+            <!-- Password -->
+            <mat-form-field class="my-2">
+              <mat-label>password</mat-label>
+              <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+              <mat-error *ngIf="loginForm.controls['password'].invalid">
+                Password is <strong>required</strong>
+              </mat-error>
+              <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button>
+            </mat-form-field>
+              <!-- Password -->
+              <button [ngClass]="{colorButton:  loginForm.invalid,
+              bgwarning: loginForm.valid}"
+              class=" text-white" [disabled]="loginForm.invalid"
+              mat-flat-button (click)="login()">Login</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
